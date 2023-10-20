@@ -34,9 +34,9 @@ xy_demand = sa.system_demand(m_sys, spectrum)
 x_demand, y_demand = zip(*xy_demand)
 
 if k_type == 'Linear':
-    xy_capacity = sa.system_capacity(k_type, int(max(x_demand)), k1_sys)
+    xy_capacity = sa.system_capacity(k_type, x_demand, k1_sys)
 elif k_type == 'Multi-linear':
-    xy_capacity = sa.system_capacity(k_type, int(max(x_demand)), k1_sys, k2_sys, F1_sys)
+    xy_capacity = sa.system_capacity(k_type, x_demand, k1_sys, k2_sys, F1_sys)
 
 x_capacity, y_capacity = zip(*xy_capacity)
 
