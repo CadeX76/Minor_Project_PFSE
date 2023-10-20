@@ -1,0 +1,3 @@
+plotly
+shapely
+git+https://github.com/CadeX76/eng_module
