@@ -88,9 +88,9 @@ def system_demand(mass: float, spectrum: Ec_response_spectrum) -> list[float]:
 
     return xy_demand
 
-def system_capacity(k_type: str, x: int, k1: float, k2: float = 0., f1max: float = 0.) -> list[float]:
+def system_capacity(k_type: str, xmax: int, k1: float, k2: float = 0., f1max: float = 0.) -> list[float]:
     y_capacity = []
-    x_range = list(range(0, x, 1))
+    x_range = list(range(0, xmax, 1))
     x = []
     for xi in x_range:
         x.append(xi/1000)
