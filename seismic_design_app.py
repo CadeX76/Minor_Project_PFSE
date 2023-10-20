@@ -48,8 +48,18 @@ fig.add_trace(go.Scatter(y= y_demand, x= x_demand, name = 'Demand'))
 fig.add_trace(go.Scatter(y= y_capacity, x= x_capacity, name = 'Capacity'))
 fig.layout.width = 700
 fig.layout.height = 700
-fig.update_xaxes(range = [0, max(x_demand) * 1.1], zeroline= True, zerolinecolor= 'black', showgrid= True)
-fig.update_yaxes(range = [0, max(y_demand) * 1.1], zeroline= True, zerolinecolor= 'black', showgrid= True)
+fig.update_xaxes(
+    range = [0, max(x_demand) * 1.1],
+    zeroline= True, zerolinewidth= 2, zerolinecolor= 'black',
+    showgrid= True, gridwidth= 1, gridcolor= 'black', griddash= 'dash', minor_griddash= 'dot',
+    ticks= 'inside', tickwidth= 2, tickcolor= 'black', ticklen= 10
+)
+fig.update_yaxes(
+    range = [0, max(y_demand) * 1.1],
+    zeroline= True, zerolinewidth=2, zerolinecolor= 'black',
+    showgrid= True, gridwidth= 1, gridcolor= 'black', griddash= 'dash', minor_griddash= 'dot',
+    ticks= 'inside', tickwidth= 2, tickcolor= 'black', ticklen= 10
+)
 fig.layout.xaxis.title = 'Displacement [m]'
 fig.layout.yaxis.title = 'Force [kN]'
 st.plotly_chart(fig)
