@@ -5,13 +5,14 @@ import streamlit as st
 from eng_module import seismic_analysis as sa
 
 st.set_page_config(
-    page_title='Seismic Design According to Eurocode 1998-1-1',
+    page_title='Seismic Design: Eurocode 1998-1-1',
     layout='wide',
     initial_sidebar_state="expanded",
 )
 
 with st.sidebar:
     st.subheader('Response Spectrum Data:')
+    st.subheader('Eurocode 1998-1-1')
     spectra_type = st.selectbox('Spectra Type', [1, 2])
     pga = 9.81 * st.number_input('Peak Ground Acceleration [ag/g]', value= 0.2)
     soil_type = st.selectbox('Soil Type', ['A', 'B', 'C', 'D', 'E'])
@@ -33,9 +34,9 @@ xy_demand = sa.system_demand(m_sys, spectrum)
 x_demand, y_demand = zip(*xy_demand)
 
 if k_type == 'Linear':
-    xy_capacity = sa.system_capacity(k_type, k1_sys)
+    xy_capacity = sa.system_capacity(k_type, x-demand, k1_sys)
 elif k_type == 'Multi-linear':
-    xy_capacity = sa.system_capacity(k_type, k1_sys, k2_sys, F1_sys)
+    xy_capacity = sa.system_capacity(k_type, x_demand, k1_sys, k2_sys, F1_sys)
 
 x_capacity, y_capacity = zip(*xy_capacity)
 
