@@ -16,7 +16,7 @@ with st.sidebar:
     spectra_type = st.selectbox('Spectra Type', [1, 2])
     pga = 9.81 * st.number_input('Peak Ground Acceleration [ag/g]', value= 0.2, step= 0.05)
     soil_type = st.selectbox('Soil Type', ['A', 'B', 'C', 'D', 'E'])
-    damping = st.number_input('Damping [%]', value= 5, step= 5)
+    damping = st.number_input('Damping [%]', value= 5., step= 5.)
     st.divider()
     st.subheader('System Parameters:')
     m_sys = st.number_input('Mass [ton]', value= 4000.0, step= 100.)
