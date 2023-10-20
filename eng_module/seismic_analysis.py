@@ -92,7 +92,7 @@ def system_capacity(k_type: str, x: int, k1: float, k2: float = 0., f1max: float
     y_capacity = []
     x_range = list(range(0, x, 1))
     x = []
-    for xi in x:
+    for xi in x_range:
         x.append(xi/1000)
         if k_type == 'Linear':
             capacity = k1 * xi/1000
