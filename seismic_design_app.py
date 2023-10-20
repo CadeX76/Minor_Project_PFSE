@@ -14,19 +14,19 @@ with st.sidebar:
     st.subheader('Response Spectrum Data:')
     st.subheader('Eurocode 1998-1-1')
     spectra_type = st.selectbox('Spectra Type', [1, 2])
-    pga = 9.81 * st.number_input('Peak Ground Acceleration [ag/g]', value= 0.2)
+    pga = 9.81 * st.number_input('Peak Ground Acceleration [ag/g]', value= 0.2, step= 0.05)
     soil_type = st.selectbox('Soil Type', ['A', 'B', 'C', 'D', 'E'])
-    damping = st.number_input('Damping [%]', value= 5)
+    damping = st.number_input('Damping [%]', value= 5, step= 5)
     st.divider()
     st.subheader('System Parameters:')
-    m_sys = st.number_input('Mass [ton]', value= 4000.0)
+    m_sys = st.number_input('Mass [ton]', value= 4000.0, step= 100.)
     k_type = st.selectbox('Type of Stiffness', ['Linear', 'Multi-linear'])
     if k_type == 'Linear':
-        k1_sys = st.number_input('Stiffness [kN/m]', value= 350000.0)
+        k1_sys = st.number_input('Stiffness [kN/m]', value= 350000.0, step= 1000.)
     elif k_type == 'Multi-linear':
-        k1_sys = st.number_input('Stiffness of first branch [kN/m]', value= 350000.0)
-        k2_sys = st.number_input('Stiffness of second branch [kN/m]', value= 35000.0)
-        F1_sys = st.number_input('Maximum force of first branch [kN]', value= 10000.0)
+        k1_sys = st.number_input('Stiffness of first branch [kN/m]', value= 350000.0, step= 1000.)
+        k2_sys = st.number_input('Stiffness of second branch [kN/m]', value= 35000.0, step= 1000.)
+        F1_sys = st.number_input('Maximum force of first branch [kN]', value= 10000.0, step= 1000.)
     
 spectrum = sa.Ec_response_spectrum(ag= pga, spectra_type= spectra_type, soil_type= soil_type, damping= damping)
 
