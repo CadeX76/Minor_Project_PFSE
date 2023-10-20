@@ -88,15 +88,18 @@ def system_demand(mass: float, spectrum: Ec_response_spectrum) -> list[float]:
 
     return xy_demand
 
-def system_capacity(k_type: str, x: list[float], k1: float, k2: float = 0., f1max: float = 0.) -> list[float]:
+def system_capacity(k_type: str, x: int, k1: float, k2: float = 0., f1max: float = 0.) -> list[float]:
     y_capacity = []
+    x_range = list(range(0, x, 1))
+    x = []
     for xi in x:
+        x.append(xi/1000)
         if k_type == 'Linear':
-            capacity = k1 * xi
+            capacity = k1 * xi/1000
             y_capacity.append(capacity)
         elif k_type == 'Multi-linear':
-            force_first_branch = k1 * xi
-            capacity = (force_first_branch <= f1max) * force_first_branch + (force_first_branch > f1max) * (f1max + k2 * (xi - f1max / k1))
+            force_first_branch = k1 * xi/1000
+            capacity = (force_first_branch <= f1max) * force_first_branch + (force_first_branch > f1max) * (f1max + k2 * (xi/1000 - f1max / k1))
             y_capacity.append(capacity)   
     xy_capacity = list(zip(x, y_capacity))
 
