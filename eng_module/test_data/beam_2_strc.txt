@@ -1,0 +1,7 @@
+Girder
+20e3,200e3,6480e6,390e6,43900,11900e3,0.3
+0.0:R,17e3:P
+DIST:Fy,3.6,3.6,0.0,20e3,case:D
+POINT:Fy,145e3,8e3,case:L
+POINT:Fy,145e3,14.5e3,case:L
+POINT:Fy,145e3,18.3e3,case:L
