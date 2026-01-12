@@ -10,11 +10,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-geometry_tab, loads_tab = st.tabs(['Geometry', 'Loads'])
-
-with geometry_tab:
-    
-
 with st.sidebar:
     st.subheader('Response Spectrum Data:')
     st.subheader('Eurocode 1998-1-1')
@@ -76,7 +71,3 @@ col1.metric(label='System Force', value=f'{round(F_sys.y, 1)} kN')
 col2.metric(label='System Displacement', value=f'{round(F_sys.x * 1000, 1)} mm')
 col3.metric(label='System Period', value=f'{round(2 * pi * sqrt(m_sys / (F_sys.y / F_sys.x)), 2)} s')
 col4.metric(label='System Acceleration', value=f'{round(F_sys.y / m_sys, 2)} m/s2')
-
-
-
-
